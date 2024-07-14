@@ -68,8 +68,8 @@ const form = () => {
       <Link to="/personal-details">Go to Personal Details Form</Link> {'\t'}
       <Link to="/family-details">Go to Family Details Form</Link>{'\t'}
       <Link to="/professional-details">Go to Professional Details Form</Link>{'\t'}
-      <Link to="/educational-details">Go to Professional Details Form</Link>{'\t'}
-      <Link to="/notification-details">Go to notification Details Form</Link>{'\t'}
+      <Link to="/educational-details">Go to Educational Details Form</Link>{'\t'}
+      <Link to="/notification-details">Go to Notification Details Form</Link>{'\t'}
 
 
 

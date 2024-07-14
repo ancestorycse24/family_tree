@@ -33,7 +33,6 @@ const personalDetailsSchema = new mongoose.Schema({
   memberId: String,
   petName: String,
   gender: String,
-  maritalStatus: String,
   houseName: String,
   address: String,
   bloodGroup: String,
@@ -104,11 +103,11 @@ app.post('/members', async (req, res) => {
 });
 
 app.post('/personal-details', async (req, res) => {
-  const { memberId, petName, gender, maritalStatus, houseName, address, bloodGroup, contactNo, whatsappNo, alive, dateOfDemise, photo, selfIntroduction, memories } = req.body;
+  const { memberId, petName, gender, houseName, address, bloodGroup, contactNo, whatsappNo, alive, dateOfDemise, photo, selfIntroduction, memories } = req.body;
 
   try {
     const newPersonalDetails = new PersonalDetails({
-      memberId, petName, gender, maritalStatus, houseName, address, bloodGroup, contactNo, whatsappNo, alive, dateOfDemise, photo, selfIntroduction, memories
+      memberId, petName, gender, houseName, address, bloodGroup, contactNo, whatsappNo, alive, dateOfDemise, photo, selfIntroduction, memories
     });
 
     const savedPersonalDetails = await newPersonalDetails.save();

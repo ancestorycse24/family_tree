@@ -6,7 +6,6 @@ const PersonalDetailsForm = () => {
     memberId: '',
     petName: '',
     gender: '',
-    maritalStatus: '',
     houseName: '',
     address: '',
     bloodGroup: '',
@@ -71,10 +70,6 @@ const PersonalDetailsForm = () => {
       <div>
         <label>Gender:</label>
         <input type="text" name="gender" value={personalDetails.gender} onChange={handleChange} />
-      </div>
-      <div>
-        <label>Marital Status:</label>
-        <input type="text" name="maritalStatus" value={personalDetails.maritalStatus} onChange={handleChange} />
       </div>
       <div>
         <label>House Name:</label>
