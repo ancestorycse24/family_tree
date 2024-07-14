@@ -37,7 +37,27 @@ const PersonalDetailsForm = () => {
       console.error('There was an error submitting the personal details!', error);
     }
   };
-
+ 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   console.log('Personal Details: ', personalDetails); // Log personal details
+  //   try {
+  //     const formData = new FormData();
+  //     for (const key in personalDetails) {
+  //       formData.append(key, personalDetails[key]);
+  //     }
+  //     const response = await axios.post('http://localhost:5000/personal-details', formData, {
+  //       headers: {
+  //         'Content-Type': 'multipart/form-data'
+  //       }
+  //     });
+  //     console.log('Personal Details Submitted: ', response.data);
+  //     // Optionally, handle success response (e.g., show a success message)
+  //   } catch (error) {
+  //     console.error('There was an error submitting the personal details!', error);
+  //     // Optionally, handle error response (e.g., show an error message)
+  //   }
+  // };
   return (
     <form onSubmit={handleSubmit}>
       <div>

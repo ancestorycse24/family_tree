@@ -3,9 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Form from './components/form';
 import PersonalDetailsForm from './components/PersonalDetailsForm';
 import ProfessionalDetailsForm from './components/ProfessionalDetailsForm';
-import EducationalQualificationForm from './components/EducationalDetailsForm.jsx';
-import NotificationDetailsForm from './components/NotificationlDetailsForm.jsx';
-//hi
+import EducationalDetailsForm from './components/EducationalDetailsForm.jsx';
+import NotificationDetailsForm from './components/NotificationalDetailsForm.jsx';
 
 import FamilyDetailsForm from './components/FamilyDetailsForm'; // Import FamilyDetailsForm
 
@@ -17,7 +16,7 @@ const App = () => {
         <Route path="/personal-details" element={<PersonalDetailsForm />} />
         <Route path="/family-details" element={<FamilyDetailsForm />} />
         <Route path="/professional-details" element={<ProfessionalDetailsForm />} />
-        <Route path="/educational-details" element={<EducationalQualificationForm />} />
+        <Route path="/educational-details" element={<EducationalDetailsForm />} />
         <Route path="/notification-details" element={<NotificationDetailsForm />} />
 
 
