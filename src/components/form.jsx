@@ -36,6 +36,7 @@ const form = () => {
     <>
       <form onSubmit={handleSubmit}>
         <div>
+          <h1>Registration details</h1>
           <label>Full Name:</label>
           <input type="text" name="fullName" value={formData.fullName} onChange={handleChange} required />
         </div>
@@ -65,11 +66,8 @@ const form = () => {
         </div>
         <button type="submit">Submit</button>
       </form>
-      <Link to="/personal-details">Go to Personal Details Form</Link> {'\t'}
-      <Link to="/family-details">Go to Family Details Form</Link>{'\t'}
-      <Link to="/professional-details">Go to Professional Details Form</Link>{'\t'}
-      <Link to="/educational-details">Go to Professional Details Form</Link>{'\t'}
-      <Link to="/notification-details">Go to notification Details Form!!!!</Link>{'\t'}
+      <Link to="/">Go to Home</Link> {'\t'}
+      
 
 
 

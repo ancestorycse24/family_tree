@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const EducationalDetailsForm = () => {
   const [formData, setFormData] = useState({
@@ -30,6 +31,8 @@ const EducationalDetailsForm = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
+      <h1>Educational details</h1>
+
         <label>Member ID:</label>
         <input type="text" name="memberId" value={formData.memberId} onChange={handleChange} required />
       </div>
@@ -52,6 +55,8 @@ const EducationalDetailsForm = () => {
         <input type="text" name="prefixSuffix" value={formData.prefixSuffix} onChange={handleChange} />
       </div>
       <button type="submit">Submit</button>
+      <div> <Link to="/">Go to Home</Link> {'\t'}
+      </div>
     </form>
   );
 };

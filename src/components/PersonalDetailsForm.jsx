@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+
 
 const PersonalDetailsForm = () => {
   const [personalDetails, setPersonalDetails] = useState({
@@ -41,6 +43,8 @@ const PersonalDetailsForm = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
+      <h1>Personal details</h1>
+
         <label>Member ID:</label>
         <input type="text" name="memberId" value={personalDetails.memberId} onChange={handleChange} required />
       </div>
@@ -97,7 +101,11 @@ const PersonalDetailsForm = () => {
         <textarea name="memories" value={personalDetails.memories} onChange={handleChange} />
       </div>
       <button type="submit">Submit</button>
+      <div></div><Link to="/">Go to Home</Link> {'\t'}
+
     </form>
+    
+    
   );
 };
 
