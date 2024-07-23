@@ -21,7 +21,7 @@ const EducationalDetailsForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/educational-qualification', formData);
+      const response = await axios.post('http://localhost:5000/educational-details', formData);
       console.log('Form Data Submitted: ', response.data);
     } catch (error) {
       console.error('There was an error submitting the form!', error);
