@@ -53,57 +53,13 @@ const Form = () => {
     }
   };
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   console.log('Form Data: ', formData); // Log form data
-  //   try {
-  //     const response = await axios.post('http://localhost:5000/members', formData);
-  //     console.log('Form Data Submitted: ', response.data);
-  //   } catch (error) {
-  //     console.error('There was an error submitting the form!', error);
-  //   }
-  // };
-
-  // return (
-  //   <>
-  //     <form onSubmit={handleSubmit}>
-  //       <div>
-  //         <label>Full Name:</label>
-  //         <input type="text" name="fullName" value={formData.fullName} onChange={handleChange} required />
-  //       </div>
-
-  //       <div>
-  //         <label>Father’s / Spouse’s ID:</label>
-  //         <input type="text" name="fatherSpouseId" value={formData.fatherSpouseId} onChange={handleChange} required />
-  //       </div>
-  //       <div>
-  //         <label>DOB:</label>
-  //         <input type="date" name="dob" value={formData.dob} onChange={handleChange} required />
-  //       </div>
-  //       <div>
-  //         <label>Birth Order:</label>
-  //         <input type="number" name="birthOrder" value={formData.birthOrder} onChange={handleChange} required />
-  //       </div>
-  //       <div>
-  //         <label>Mobile Number:</label>
-  //         <input type="tel" name="mobileNumber" value={formData.mobileNumber} onChange={handleChange} required />
-  //       </div>
-  //       <div>
-  //         <label>Email ID:</label>
-  //         <input type="email" name="email" value={formData.email} onChange={handleChange} required />
-  //       </div>
-  //       <div>
-  //         <label>Member ID:</label>
-  //         <input type="text" name="memberId" value={formData.memberId} onChange={handleChange} required />
-  //       </div>
-  //       <button type="submit">Submit</button>
-  //     </form>
-
   return (
+
     <div className="form-container">
       <form onSubmit={handleSubmit} className="form-content">
-        <h2>Member Registration Form</h2>
+        <h2>Registration Form</h2>
         <div className="form-group">
+
           <label>Full Name:</label>
           <input type="text" name="fullName" value={formData.fullName} onChange={handleChange} />
           {errors.fullName && <span className="error">{errors.fullName}</span>}
@@ -141,14 +97,10 @@ const Form = () => {
         <button type="submit">Submit</button>
         {successMessage && <div className="success-message">{successMessage}</div>}
       </form>
-      <div className="form-links">
-        <Link to="/personal-details">Go to Personal Details Form</Link>
-        <Link to="/family-details">Go to Family Details Form</Link>
-        <Link to="/professional-details">Go to Professional Details Form</Link>
-        <Link to="/educational-details">Go to Educational Details Form</Link>
-        <Link to="/notification-details">Go to Notification Details Form</Link>
+
+        <Link to="/">Go to Home</Link> {'\t'}
       </div>
-    </div>
+
   );
 };
 

@@ -5,14 +5,15 @@ import PersonalDetailsForm from './components/PersonalDetailsForm';
 import ProfessionalDetailsForm from './components/ProfessionalDetailsForm';
 import EducationalDetailsForm from './components/EducationalDetailsForm.jsx';
 import NotificationDetailsForm from './components/NotificationalDetailsForm.jsx';
-
+import Landing from './components/Landing.jsx'
 import FamilyDetailsForm from './components/FamilyDetailsForm'; // Import FamilyDetailsForm
 
 const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Form/>} />
+        <Route path="/" element={<Landing/>} />
+        <Route path="/form" element={<Form/>} />
         <Route path="/personal-details" element={<PersonalDetailsForm />} />
         <Route path="/family-details" element={<FamilyDetailsForm />} />
         <Route path="/professional-details" element={<ProfessionalDetailsForm />} />

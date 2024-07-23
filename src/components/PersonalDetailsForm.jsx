@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+
 
 const PersonalDetailsForm = () => {
   const [personalDetails, setPersonalDetails] = useState({
@@ -37,29 +39,12 @@ const PersonalDetailsForm = () => {
     }
   };
  
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   console.log('Personal Details: ', personalDetails); // Log personal details
-  //   try {
-  //     const formData = new FormData();
-  //     for (const key in personalDetails) {
-  //       formData.append(key, personalDetails[key]);
-  //     }
-  //     const response = await axios.post('http://localhost:5000/personal-details', formData, {
-  //       headers: {
-  //         'Content-Type': 'multipart/form-data'
-  //       }
-  //     });
-  //     console.log('Personal Details Submitted: ', response.data);
-  //     // Optionally, handle success response (e.g., show a success message)
-  //   } catch (error) {
-  //     console.error('There was an error submitting the personal details!', error);
-  //     // Optionally, handle error response (e.g., show an error message)
-  //   }
-  // };
+ 
   return (
     <form onSubmit={handleSubmit}>
       <div>
+      <h1>Personal details</h1>
+
         <label>Member ID:</label>
         <input type="text" name="memberId" value={personalDetails.memberId} onChange={handleChange} required />
       </div>
@@ -112,7 +97,11 @@ const PersonalDetailsForm = () => {
         <textarea name="memories" value={personalDetails.memories} onChange={handleChange} />
       </div>
       <button type="submit">Submit</button>
+      <div></div><Link to="/">Go to Home</Link> {'\t'}
+
     </form>
+    
+    
   );
 };
 

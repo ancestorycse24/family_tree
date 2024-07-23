@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+
 
 const ProfessionalDetailsForm = () => {
   const [formData, setFormData] = useState({
@@ -34,6 +36,8 @@ const ProfessionalDetailsForm = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
+      <h1>Professional details</h1>
+
         <label>Member ID:</label>
         <input type="text" name="memberId" value={formData.memberId} onChange={handleChange} required />
       </div>
@@ -86,6 +90,8 @@ const ProfessionalDetailsForm = () => {
         <input type="text" name="areaOfSpecialization" value={formData.areaOfSpecialization} onChange={handleChange} />
       </div>
       <button type="submit">Submit</button>
+      <div></div><Link to="/">Go to Home</Link> {'\t'}
+
     </form>
   );
 };
