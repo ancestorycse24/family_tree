@@ -36,7 +36,7 @@ const NotificationDetailsForm = () => {
       formDataToSubmit.append(key, formData[key]);
     }
     try {
-      const response = await axios.post('http://localhost:5000/notifications', formDataToSubmit, {
+      const response = await axios.post('http://localhost:5000/notification-details', formDataToSubmit, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
