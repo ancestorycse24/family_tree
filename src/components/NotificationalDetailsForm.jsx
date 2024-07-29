@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -31,16 +30,16 @@ const NotificationDetailsForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const formDataToSubmit = new FormData();
-    for (const key in formData) {
+    
+    /* for (const key in formData) {
       formDataToSubmit.append(key, formData[key]);
-    }
+    } */
     try {
-      const response = await axios.post('http://localhost:5000/notification-details', formDataToSubmit, {
+      const response = await axios.post('http://localhost:5000/notification-details', formData/* , {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
-      });
+      } */);
       console.log('Form Data Submitted: ', response.data);
     } catch (error) {
       console.error('There was an error submitting the form!', error);

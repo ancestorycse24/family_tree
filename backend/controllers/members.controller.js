@@ -61,19 +61,10 @@ const educationalDetails = async (req, res) => {
 };
 
 const notificationDetails = async (req, res) => {
-  const { memberId, notificationText, photo, postingDateTime, expiryDateTime, type } = req.body;
-
+  const notificationDetails = new modelobj.NotificationDetails(req.body);
+  console.log("hogya");
   try {
-    const newNotificationDetails = new modelobj.NotificationDetails({
-      memberId,
-      notificationText,
-      photo,
-      postingDateTime,
-      expiryDateTime,
-      type
-    });
-
-    const savedNotificationDetails = await newNotificationDetails.save();
+    const savedNotificationDetails = await notificationDetails.save();
     res.status(201).json(savedNotificationDetails);
   } catch (err) {
     res.status(400).json({ message: err.message });
