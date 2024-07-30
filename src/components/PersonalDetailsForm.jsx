@@ -8,7 +8,6 @@ const PersonalDetailsForm = () => {
     memberId: '',
     petName: '',
     gender: '',
-    maritalStatus: '',
     houseName: '',
     address: '',
     bloodGroup: '',
@@ -39,7 +38,8 @@ const PersonalDetailsForm = () => {
       console.error('There was an error submitting the personal details!', error);
     }
   };
-
+ 
+ 
   return (
     <form onSubmit={handleSubmit}>
       <div>
@@ -55,10 +55,6 @@ const PersonalDetailsForm = () => {
       <div>
         <label>Gender:</label>
         <input type="text" name="gender" value={personalDetails.gender} onChange={handleChange} />
-      </div>
-      <div>
-        <label>Marital Status:</label>
-        <input type="text" name="maritalStatus" value={personalDetails.maritalStatus} onChange={handleChange} />
       </div>
       <div>
         <label>House Name:</label>
