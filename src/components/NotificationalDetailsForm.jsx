@@ -1,6 +1,8 @@
 
 import React, { useState } from 'react';
 import axios from 'axios';
+import * as yup from 'yup';
+import './form.css';
 import { Link } from 'react-router-dom';
 
 
@@ -13,6 +15,8 @@ const NotificationDetailsForm = () => {
     expiryDateTime: '',
     type: ''
   });
+  const [errors, setErrors] = useState({});
+  const [successMessage, setSuccessMessage] = useState('');
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;

@@ -54,12 +54,10 @@ const Form = () => {
   };
 
   return (
-
     <div className="form-container">
       <form onSubmit={handleSubmit} className="form-content">
-        <h2>Registration Form</h2>
+        <h2> MemberRegistration Form</h2>
         <div className="form-group">
-
           <label>Full Name:</label>
           <input type="text" name="fullName" value={formData.fullName} onChange={handleChange} />
           {errors.fullName && <span className="error">{errors.fullName}</span>}
