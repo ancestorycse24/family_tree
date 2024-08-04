@@ -27,6 +27,7 @@ const Form = () => {
   });
 
   const handleChange = (e) => {
+    
     const { name, value } = e.target;
     setFormData({
       ...formData,
@@ -40,6 +41,7 @@ const Form = () => {
     try {
       await memberSchema.validate(formData, { abortEarly: false });
       // Form is valid, submit data to the server
+      console.log("yes")
       const response = await axios.post('http://localhost:5000/members', formData);
       console.log('Form Data Submitted: ', response.data);
       setSuccessMessage('Form submitted successfully!');
