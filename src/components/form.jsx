@@ -1,9 +1,8 @@
-
 import React, { useState } from 'react';
 import axios from 'axios';
 import * as yup from 'yup';
 import { Link } from 'react-router-dom';
-import './form.css';
+import '../form.css';
 
 const Form = () => {
   const [formData, setFormData] = useState({

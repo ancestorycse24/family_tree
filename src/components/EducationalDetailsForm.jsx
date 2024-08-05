@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import * as yup from 'yup';
-import './form.css';
+import '../form.css';
 import { Link } from 'react-router-dom';
 
 const EducationalDetailsForm = () => {
