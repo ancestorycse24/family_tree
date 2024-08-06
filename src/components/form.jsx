@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import axios from 'axios';
 import * as yup from 'yup';
@@ -12,7 +13,8 @@ const Form = () => {
     birthOrder: '',
     mobileNumber: '',
     email: '',
-    memberId: ''
+    memberId: '',
+    password: ''
   });
   const [errors, setErrors] = useState({});
   const [successMessage, setSuccessMessage] = useState('');
@@ -23,7 +25,8 @@ const Form = () => {
     birthOrder: yup.number().positive().integer().required('Birth order is required'),
     mobileNumber: yup.string().matches(/^\d{10}$/, 'Mobile number must be 10 digits').required('Mobile number is required'),
     email: yup.string().email('Invalid email format').required('Email is required'),
-    memberId: yup.string().required('Member ID is required')
+    memberId: yup.string().required('Member ID is required'),
+    // password: yup.string().required('Password is required')
   });
 
   const handleChange = (e) => {
@@ -35,14 +38,29 @@ const Form = () => {
     });
   };
 
+  const generateRandomPassword = (length) => {
+    const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()";
+    let password = "";
+    for (let i = 0, n = charset.length; i < length; ++i) {
+      password += charset.charAt(Math.floor(Math.random() * n));
+    }
+    return password;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       await memberSchema.validate(formData, { abortEarly: false });
+      const randomPassword = generateRandomPassword(12);
+      
+      console.log('Generated Password:', randomPassword);
+
+      const finalFormData = { ...formData, password: randomPassword };
+
       // Form is valid, submit data to the server
       console.log("yes")
-      const response = await axios.post('http://localhost:5000/members', formData);
+      const response = await axios.post('http://localhost:5000/members', finalFormData);
       console.log('Form Data Submitted: ', response.data);
       setSuccessMessage('Form submitted successfully!');
       setTimeout(() => setSuccessMessage(''), 3000); 

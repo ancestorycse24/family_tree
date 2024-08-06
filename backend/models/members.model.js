@@ -1,4 +1,3 @@
-/* import mongoose from 'mongoose'; */
 const mongoose = require("mongoose");
 
 // Define schemas and models
@@ -10,6 +9,7 @@ const memberSchema = new mongoose.Schema({
   mobileNumber: String,
   email: String,
   memberId: String,
+  password: String,
 }, { collection: 'registrations' });
 const Member = mongoose.model('Member', memberSchema);
 

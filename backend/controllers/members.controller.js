@@ -1,11 +1,23 @@
+
 const express =require('express');
 const modelobj=require('../models/members.model.js');
+const sendMail = require('../mailer.js'); // Adjust the path as needed
+
 
 const members = async (req, res) => {
   console.log("submitted")
   const member = new modelobj.Member(req.body);
   try {
     const newMember = await member.save();
+
+      // Send email with the password and username (email)
+      const email = req.body.email;
+      const password = req.body.password;
+      const subject = 'Your Registration Details';
+      const text = `Hello ${req.body.fullName},\n\nYour registration is successful. Here are your login credentials:\n\nUsername: ${email}\nPassword: ${password}\n\nPlease keep this information secure.\n\nBest regards,\nAncestory`;
+  
+      sendMail(email, subject, text);
+
     res.status(201).json(newMember);
   } catch (err) {
     res.status(400).json({ message: err.message });
