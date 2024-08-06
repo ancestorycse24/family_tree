@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 
 const PersonalDetailsForm = () => {
-  const [personalDetails, setPersonalDetails] = useState({
+  const initialFormData = {
     memberId: '',
     petName: '',
     gender: '',
@@ -19,7 +19,10 @@ const PersonalDetailsForm = () => {
     photo: '',
     selfIntroduction: '',
     memories: ''
-  });
+  };
+
+  const [personalDetails, setPersonalDetails] = useState(initialFormData);
+  const [successMessage, setSuccessMessage] = useState(''); 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -37,6 +40,7 @@ const PersonalDetailsForm = () => {
       console.log('Personal Details Submitted: ', response.data);
       setSuccessMessage('Form submitted successfully!');
       setTimeout(() => setSuccessMessage(''), 3000); 
+      setPersonalDetails(initialFormData);  
     } catch (error) {
       console.error('There was an error submitting the personal details!', error);
     }
@@ -99,6 +103,9 @@ const PersonalDetailsForm = () => {
           <label>Memories (about the departed member):</label>
           <textarea name="memories" value={personalDetails.memories} onChange={handleChange} />
         </div>
+        {successMessage && (
+          <div className="success-message">{successMessage}</div>
+        )}
         <button type="submit">Submit</button>
         <Link to="/">Go to Home</Link>
       </form>

@@ -6,14 +6,15 @@ import { Link } from 'react-router-dom';
 
 
 const FamilyDetailsForm = () => {
-  const [formData, setFormData] = useState({
+  const initialFormData = {
     memberId: '',
     maritalStatus: '',
     anniversaryDate: '',
     spouseDetails: '',
     noOfChildren: '',
     childrenDetails: ''
-  });
+  };
+  const [formData, setFormData] = useState(initialFormData);
   const [errors, setErrors] = useState({});
   const [successMessage, setSuccessMessage] = useState('');
   const familySchema = yup.object({
@@ -41,6 +42,7 @@ const FamilyDetailsForm = () => {
       console.log('Form Data Submitted: ', response.data);
       setSuccessMessage('Form submitted successfully!');
       setTimeout(() => setSuccessMessage(''), 3000); 
+      setFormData(initialFormData); 
     } catch (err) {
       const newErrors = {};
       err.inner.forEach((error) => {

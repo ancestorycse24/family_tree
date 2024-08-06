@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 
 const ProfessionalDetailsForm = () => {
-  const [formData, setFormData] = useState({
+  const initialFormData = {
     memberId: '',
     occupation: '',
     institutionOrSelf: '',
@@ -15,7 +15,8 @@ const ProfessionalDetailsForm = () => {
     experience: '',
     positionsHeld: '',
     areaOfSpecialization: ''
-  });
+  };
+  const [formData, setFormData] = useState(initialFormData);
   const [errors, setErrors] = useState({});
   const [successMessage, setSuccessMessage] = useState('');
 
@@ -48,7 +49,8 @@ const ProfessionalDetailsForm = () => {
       const response = await axios.post('http://localhost:5000/professional-details', formData);
       console.log('Form Data Submitted: ', response.data);
       setSuccessMessage('Form submitted successfully!');
-      setTimeout(() => setSuccessMessage(''), 3000);
+      setTimeout(() => setSuccessMessage(''), 3000); 
+      setFormData(initialFormData); 
     } catch (err) {
       const newErrors = {};
       err.inner.forEach((error) => {

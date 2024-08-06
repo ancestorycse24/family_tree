@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import '../form.css';
 
 const Form = () => {
-  const [formData, setFormData] = useState({
+  const initialFormData = {
     fullName: '',
     fatherSpouseId: '',
     dob: '',
@@ -14,7 +14,9 @@ const Form = () => {
     email: '',
     memberId: '',
     password: ''
-  });
+  };
+  
+  const [formData, setFormData] = useState(initialFormData);
   const [errors, setErrors] = useState({});
   const [successMessage, setSuccessMessage] = useState('');
   const memberSchema = yup.object({
@@ -63,6 +65,7 @@ const Form = () => {
       console.log('Form Data Submitted: ', response.data);
       setSuccessMessage('Form submitted successfully!');
       setTimeout(() => setSuccessMessage(''), 3000); 
+      setFormData(initialFormData);  
     } catch (err) {
       const newErrors = {};
       err.inner.forEach((error) => {

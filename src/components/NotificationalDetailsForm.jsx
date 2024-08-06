@@ -6,14 +6,17 @@ import { Link } from 'react-router-dom';
 
 
 const NotificationDetailsForm = () => {
-  const [formData, setFormData] = useState({
+  const initialFormData = {
     memberId: '',
     notificationText: '',
     photo: null,
     postingDateTime: '',
     expiryDateTime: '',
     type: ''
-  });
+  };
+
+  const [formData, setFormData] = useState(initialFormData);
+  const [successMessage, setSuccessMessage] = useState(''); 
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -43,6 +46,10 @@ const NotificationDetailsForm = () => {
         }
       } */);
       console.log('Form Data Submitted: ', response.data);
+      setSuccessMessage('Form submitted successfully!');
+
+      setTimeout(() => setSuccessMessage(''), 3000); 
+      setFormData(initialFormData); 
     } catch (error) {
       console.error('There was an error submitting the form!', error);
     }
@@ -80,6 +87,9 @@ const NotificationDetailsForm = () => {
             <option value="One Time">One Time</option>
           </select>
         </div>
+        {successMessage && (
+          <div className="success-message">{successMessage}</div>
+        )}
         <button type="submit">Submit</button>
         <Link to="/">Go to Home</Link>
       </form>

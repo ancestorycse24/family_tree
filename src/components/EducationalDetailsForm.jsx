@@ -5,12 +5,14 @@ import '../form.css';
 import { Link } from 'react-router-dom';
 
 const EducationalDetailsForm = () => {
-  const [formData, setFormData] = useState({
+  const initialFormData = {
     memberId: '',
     educationLevel: '',
     qualification: '',
     prefixSuffix: ''
-  });
+  };
+  
+  const [formData, setFormData] = useState(initialFormData);
   const [errors, setErrors] = useState({});
   const [successMessage, setSuccessMessage] = useState('');
 
@@ -38,6 +40,7 @@ const EducationalDetailsForm = () => {
       console.log('Form Data Submitted: ', response.data);
       setSuccessMessage('Form submitted successfully!');
       setTimeout(() => setSuccessMessage(''), 3000); 
+      setFormData(initialFormData); 
     } catch (err) {
       const newErrors = {};
       err.inner.forEach((error) => {
