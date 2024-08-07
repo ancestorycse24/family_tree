@@ -1,12 +1,11 @@
-
 import React, { useState } from 'react';
 import axios from 'axios';
 import * as yup from 'yup';
 import { Link } from 'react-router-dom';
-import './form.css';
+import '../form.css';
 
 const Form = () => {
-  const [formData, setFormData] = useState({
+  const initialFormData = {
     fullName: '',
     fatherSpouseId: '',
     dob: '',
@@ -15,7 +14,9 @@ const Form = () => {
     email: '',
     memberId: '',
     password: ''
-  });
+  };
+  
+  const [formData, setFormData] = useState(initialFormData);
   const [errors, setErrors] = useState({});
   const [successMessage, setSuccessMessage] = useState('');
   const memberSchema = yup.object({
@@ -64,6 +65,7 @@ const Form = () => {
       console.log('Form Data Submitted: ', response.data);
       setSuccessMessage('Form submitted successfully!');
       setTimeout(() => setSuccessMessage(''), 3000); 
+      setFormData(initialFormData);  
     } catch (err) {
       const newErrors = {};
       err.inner.forEach((error) => {
@@ -74,12 +76,10 @@ const Form = () => {
   };
 
   return (
-
     <div className="form-container">
       <form onSubmit={handleSubmit} className="form-content">
-        <h2>Registration Form</h2>
+        <h2> MemberRegistration Form</h2>
         <div className="form-group">
-
           <label>Full Name:</label>
           <input type="text" name="fullName" value={formData.fullName} onChange={handleChange} />
           {errors.fullName && <span className="error">{errors.fullName}</span>}
